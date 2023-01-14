@@ -1,4 +1,5 @@
 import React, {memo, useState} from 'react';
+import clsx from 'clsx';
 
 import {getDefaultValueArrayCheckbox, getConfig} from '../utils';
 
@@ -38,7 +39,7 @@ const DataTable: React.FC<any> = ({
         id="tableСommon"
         className={styles.tableWrapper}
       >
-        <table className={styles.table}>
+        <table className={clsx(styles.table, styles.full)}>
           <TableThead
             styles={styles}
             data={topBar}

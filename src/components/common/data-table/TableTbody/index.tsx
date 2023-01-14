@@ -44,25 +44,9 @@ const TableTbody: React.FC<any> = ({
                 ? columnsObject
                 : filteredColumnsObject.map(([code, column]) => {
 
-                  const {
-                    useSendCallPrice,
-                    underReview,
-                    visibleType,
-                    needVerify,
-                    warning,
-                  } = column;
-
                   return (
                     <td
-                      className={clsx(
-                        !!code && styles[code],
-                        !!visibleType && styles[visibleType],
-                        !!isNew && styles.isNew,
-                        !!useSendCallPrice && styles['price_asc--no_price'],
-                        !!warning && styles['position--warning'],
-                        !!needVerify && styles['notInAvailable--verify'],
-                        !!underReview && styles['status--underReview'],
-                      )}
+                      className={clsx(!!code && styles[code])}
                     >
                       <Column
                         data={column}

@@ -41,7 +41,9 @@
     ]
   },
   "devDependencies": {
+    "@types/react-show-more-text": "^1.4.2",
     "clsx": "^1.2.1",
+    "react-show-more-text": "^1.6.2",
     "sass": "^1.57.1"
   }
 }

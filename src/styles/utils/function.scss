@@ -1,0 +1,24 @@
+/*
+  Миксин для обрезки текста (Progressive Enhancement)
+*/
+
+@mixin line-clamp($lines) {
+
+  @supports (-webkit-line-clamp: $lines) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@mixin line-clamp-height($lines, $lineheight) {
+  overflow: hidden;
+  max-height: $lineheight * $lines + px;
+
+  @supports (-webkit-line-clamp: $lines) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}

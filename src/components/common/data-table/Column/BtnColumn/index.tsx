@@ -13,7 +13,9 @@ export const BtnColumn = ({ data: {value, id }}) => {
           borderRadius: '10px',
           display: 'flex',
           padding: '5px 20px',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          fontWeight: 'bold',
+          color: 'white'
         }}
         onClick={onClick}
       >
