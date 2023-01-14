@@ -1,4 +1,13 @@
+import { tableType } from '../../../page/main/data.mock';
 import { Classes } from '../../../types/styles';
+
+export type DataTableType = {
+  hasCheckedAction?: boolean
+  updateData: () => void
+  setData: () => void
+  table: tableType
+}
+
 // import {
 //   DataTableTopActionBar,
 //   DataTableActionBar,

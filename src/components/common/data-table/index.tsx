@@ -1,19 +1,23 @@
 import React, {memo, useState} from 'react';
+import { useStore } from 'effector-react'
 import clsx from 'clsx';
 
 import {getDefaultValueArrayCheckbox, getConfig} from '../utils';
+import { tableType } from '../../../page/main/data.mock';
 
 import ActionBarContainer from './ActionBarContainer';
 import TableThead from './TableThead';
 import TableTbody from './TableTbody';
 
+import {DataTableType} from './types';
 import styles from './data-table.module.scss';
 
-const DataTable: React.FC<any> = ({
+
+const DataTable: React.FC<DataTableType> = ({
+                                    table: { topBar, items, actionBar },
                                     hasCheckedAction = true,
                                     updateData,
                                     setData,
-                                    table: { topBar, items, actionBar, bottomBar },
                                   }) => {
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
 
@@ -22,11 +26,9 @@ const DataTable: React.FC<any> = ({
   });
 
   const [config, setConfig] = useState(
-    getConfig({ topBar, bottomBar })
+    getConfig({ topBar })
   );
-
   return (
-
     <>
       {!!actionBar && (
         <ActionBarContainer
@@ -34,7 +36,7 @@ const DataTable: React.FC<any> = ({
           actionBar={actionBar}
         />
       )}
-
+      
       <div
         id="tableСommon"
         className={styles.tableWrapper}
@@ -42,7 +44,7 @@ const DataTable: React.FC<any> = ({
         <table className={clsx(styles.table, styles.full)}>
           <TableThead
             styles={styles}
-            data={topBar}
+            topBar={topBar}
           />
 
           <TableTbody

@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CheckBoxColumn = () => {
   return (
-    <div className="App">
+    <div>
       <input type="checkbox"/>
     </div>
   );

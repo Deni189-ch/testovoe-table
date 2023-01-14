@@ -1,8 +1,6 @@
 // собираем новый массив с id или productId
 //@ts-ignore
 export const getDefaultValueArrayCheckbox = (items, id) => {
-  console.log('item=== id', id)
-  console.log('items, id', items)
   if (!items?.length) return [];
   //@ts-ignore
   const defaultArray = [];
@@ -49,7 +47,7 @@ export const getNewCheckedArray = (items, arrayID) => {
 
 // собираем config  const [config, setConfig] = useState(
 // @ts-ignore
-export const getConfig = ({ topBar, bottomBar }) => {
+export const getConfig = ({ topBar }) => {
   let temp = {
     sort_by: null,
     sort_direction: null,
@@ -77,39 +75,5 @@ export const getConfig = ({ topBar, bottomBar }) => {
     }
   }
 
-  // пагинация
-  if (!!bottomBar && !!bottomBar.pagination) {
-    const { activePage, activePerPage } = bottomBar.pagination;
-    temp = {
-      ...temp,
-      page: activePage,
-      per_page: activePerPage,
-    };
-  }
-
   return temp;
-};
-
-// изменить сортировку и получить новый config. (по возрастанию/убыванию)
-//@ts-ignore
-export const getNewConfigChangeSort = ({ code, config }) => {
-  let newConfig = {};
-
-  if (config.sort_by === code && config.sort_direction === 'asc') {
-    newConfig = {
-      ...config,
-      sort_by: code,
-      sort_direction: 'desc',
-      page: null,
-    };
-  } else {
-    newConfig = {
-      ...config,
-      sort_by: code,
-      sort_direction: 'asc',
-      page: null,
-    };
-  }
-
-  return newConfig;
 };

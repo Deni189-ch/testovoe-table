@@ -3,7 +3,7 @@ import ShowMoreText from "react-show-more-text";
 
 import style from './text-column.module.scss';
 
-export const TextColumn = ({ data: { value }}) => {
+export const TextColumn = ({ data: { value }}: any) => {
 
    return (
     <div>

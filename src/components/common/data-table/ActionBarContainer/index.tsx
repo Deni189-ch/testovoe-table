@@ -3,16 +3,17 @@ import React, {memo} from 'react';
 import CheckedAction from './CheckedAction';
 import SearchBoxContainer from './SearchBoxContainer';
 
-const ActionBarContainer: React.FC<any> = ({
-                                             actionBar,
-                                             hasCheckedAction,
-                                           }) => {
+import {actionBarType} from '../../../../page/main/data.mock';
+import {ActionBarContainerType} from './types';
+
+import styles from './ActionBarContainer.module.scss';
+
+const ActionBarContainer: React.FC<ActionBarContainerType> = ({
+                                                                hasCheckedAction,
+                                                                actionBar,
+                                                              }) => {
   return (
-    <div style={{
-      backgroundColor: '#f7f8fa',
-      padding: '10px 10px 5px 10px',
-      display: 'flex',
-    }}>
+    <div className={styles.wrapper}>
       {!!hasCheckedAction && (
         <CheckedAction/>
       )}

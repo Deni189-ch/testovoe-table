@@ -1,11 +1,63 @@
-export const getMockData = {
+export type cellType = {
+  code: string,
+  type?: string
+  title?: string
+  value?: string | boolean
+  id?: string
+}
+export type columnsCellType = {
+    use: cellType
+    number: cellType
+    mainImage: cellType
+    description: cellType
+    name: cellType
+    vendor_code: cellType
+    price: cellType
+    volume_multiplicity: cellType
+    status?: cellType
+    btn: cellType
+    test?: cellType
+    id: cellType
+}
+export type columnsType = {
+  columns: columnsCellType
+}
+export type topBarType = {
+  checkbox: cellType
+  number: cellType
+  mainImage: cellType
+  description: cellType
+  name: cellType
+  art: cellType
+  price: cellType
+  norm_otp: cellType
+  test: cellType
+  total: cellType
+}
+export type actionBarType = {
+  search: {
+    placeholder: string
+  }
+}
+export type tableType = {
+  topBar: topBarType,
+  items: Array<columnsType>
+  actionBar: actionBarType
+}
+export type dataType = {
+  table: tableType
+}
+export type getMockData = {
+  data: dataType,
+}
+
+export const getMockData: getMockData = {
   data: {
     table: {
       topBar: {
         checkbox: {
           code: 'checkbox',
           type: 'hidden',
-          value: false,
         },
         number: {
           code: 'number',
@@ -103,15 +155,13 @@ export const getMockData = {
             btn: {
               code: 'btn',
               type: 'btn',
-              icon: '',
-              disable: false,
               value: 'Купить',
               id: 'id № 80'
             },
             id: {
               code: 'id',
               type: 'hidden',
-              value: 80,
+              value: '80',
             },
           },
         },
@@ -173,8 +223,6 @@ export const getMockData = {
             btn: {
               code: 'btn',
               type: 'btn',
-              icon: '',
-              disable: false,
               value: 'Купить',
               id: 'id № 79'
             },
@@ -186,6 +234,11 @@ export const getMockData = {
           },
         },
       ],
+      actionBar: {
+        search: {
+          placeholder: 'Введите артикул или название',
+        },
+      },
     },
   },
 };

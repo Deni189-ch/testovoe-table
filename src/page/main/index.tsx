@@ -1,16 +1,23 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useStore} from 'effector-react';
 
+import { $home, getHomeFetchFx, addProductEv } from '../../store/home';
 import {getMockData} from './data.mock';
+
 import {Layout} from '../../components/layouts/main/Layout';
 import DataTable from '../../components/common/data-table';
 
 import styles from './main.module.scss';
 
-export const MainPage = () => {
-  const [dataTable, setDataTable] = useState(getMockData);
+export const MainPage: React.FC = () => {
+  const data = useStore($home)
 
+  useEffect(() => {
+    getHomeFetchFx('http://testing')
+  }, [])
+  
   const addProductInTable = () => {
-    
+    addProductEv()
   }
   const updateData = () => {
   }
@@ -20,13 +27,16 @@ export const MainPage = () => {
     <div className="container noPadding border-edges">
       <Layout>
         <div>
-          <DataTable
-            table={dataTable.data.table}
-            updateData={updateData}
-            setData={setData}
-          />
+          {!!data
+            ? <DataTable
+              table={data?.data.table}
+              updateData={updateData}
+              setData={setData}
+            />
+            : <div>нет продуктов</div>
+          }
 
-          <div className={styles.addProductWrapper}>
+          {!!data && <div className={styles.addProductWrapper}>
             <button
               style={{
                 minHeight: '30px',
@@ -42,7 +52,7 @@ export const MainPage = () => {
             >
               Добавить товар в таблицу
             </button>
-          </div>
+          </div>}
         </div>
       </Layout>
     </div>

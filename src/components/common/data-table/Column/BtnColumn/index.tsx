@@ -1,22 +1,15 @@
 import React from 'react';
 
-export const BtnColumn = ({ data: {value, id }}) => {
+import styles from './BtnColumn.module.scss';
+
+export const BtnColumn = ({data: {value, id}}: any) => {
   const onClick = () => {
     alert(id)
   }
   return (
-    <div  style={{display: 'flex', justifyContent: 'end'}}>
+    <div className={styles.wrapper}>
       <button
-        style={{
-          minHeight: '30px',
-          backgroundColor: 'orange',
-          borderRadius: '10px',
-          display: 'flex',
-          padding: '5px 20px',
-          justifyContent: 'center',
-          fontWeight: 'bold',
-          color: 'white'
-        }}
+        className={styles.wrapperButton}
         onClick={onClick}
       >
         {!!value && value}

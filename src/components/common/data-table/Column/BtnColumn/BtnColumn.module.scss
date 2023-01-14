@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: end;
+}
+
+.wrapperButton {
+  min-height: 30px;
+  background-color: orange;
+  border-radius: 10px;
+  display: flex;
+  padding: 5px 20px;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}

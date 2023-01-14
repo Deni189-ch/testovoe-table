@@ -1,13 +1,16 @@
 import React, {memo} from 'react';
 import clsx from 'clsx';
 
-const DataTableThead: React.FC<any> = ({
-                                         data,
-                                         styles,
-                                       }: any) => {
-  if (!Object.keys(data).length) return null;
+import { cellType } from '../../../../page/main/data.mock';
+import {DataTableTheadType} from './types'
 
-  const dataValues = Object.values(data);
+const DataTableThead: React.FC<DataTableTheadType> = ({
+                                                        topBar,
+                                                        styles,
+                                                      }) => {
+  if (!Object.keys(topBar).length) return null;
+
+  const dataValues = Object.values(topBar);
 
   return (
     <thead>
@@ -16,7 +19,7 @@ const DataTableThead: React.FC<any> = ({
         ({
            title,
            code,
-         }: any) => {
+         }: cellType) => {
           return (
             <th
               key={`${code}-${title}`}
