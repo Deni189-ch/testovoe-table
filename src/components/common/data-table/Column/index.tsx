@@ -5,6 +5,8 @@ import {ImagesColumn} from './ImagesColumn';
 import {TextColumn} from './TextColumn';
 import {BtnColumn} from './BtnColumn';
 
+import {ColumnType} from './types';
+
 const columnComponentByType = {
   checkbox: CheckBoxColumn,
   image: ImagesColumn,
@@ -12,18 +14,16 @@ const columnComponentByType = {
   btn: BtnColumn,
 };
 
-const Column: React.FC = ({ code, data, config, classes }: any) => {
-  const { type } = data;
 
+const Column: React.FC<ColumnType> = ({code, data}) => {
+  const {type} = data;
   // @ts-ignore
-  if (!columnComponentByType[type]) return null;
+  if (!!type && !columnComponentByType[type]) return null;
 
   // @ts-ignore
   const ColumnComponent = columnComponentByType[type];
   return (
     <ColumnComponent
-      classes={classes}
-      config={config}
       type={type}
       code={code}
       data={data}

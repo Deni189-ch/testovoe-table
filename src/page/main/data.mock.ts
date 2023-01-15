@@ -47,11 +47,11 @@ export type tableType = {
 export type dataType = {
   table: tableType
 }
-export type getMockData = {
+export type MockDataType = {
   data: dataType,
 }
 
-export const getMockData: getMockData = {
+export const getMockData: MockDataType = {
   data: {
     table: {
       topBar: {
@@ -102,7 +102,7 @@ export const getMockData: getMockData = {
             use: {
               code: 'use',
               type: 'checkbox',
-              value: false,
+              value: true,
             },
             number: {
               code: 'number',
@@ -230,6 +230,74 @@ export const getMockData: getMockData = {
               code: 'id',
               type: 'hidden',
               value: '79',
+            },
+          },
+        },
+        {
+          columns: {
+            use: {
+              code: 'use',
+              type: 'checkbox',
+              value: true,
+            },
+            number: {
+              code: 'number',
+              type: 'text',
+              value: '27687',
+            },
+            mainImage: {
+              code: 'mainImage',
+              type: 'image',
+              value: 'image',
+            },
+            description: {
+              code: 'description',
+              type: 'text',
+              value: 'Лучшие ноутбуки линейки производителя, хорошее решение для учебы, работы и отдыха. Информацию об условиях отпуска (реализации) уточняйте у продавца.\n' +
+                '\n' +
+                'Информация о технических характеристиках, комплекте поставки, стране изготовления и внешнем виде товара носит справочный характер.\n' +
+                '\n' +
+                'Стоимость доставки из других регионов приблизительная. Точную стоимость уточняйте у продавца.\n' +
+                '\n' +
+                'Товары в разделе «Вместе с этим покупают» подобраны автоматически. Совместимость товаров уточняйте у продавца или производителя.\n' +
+                '\n' +
+                'Ежемесячный платеж является приблизительным или рассчитан автоматически на основе предоставленной продавцом информации. Подробные условия покупки товаров в кредит, полную стоимость кредита и другие условия кредитования уточняйте на сайте продавца.',
+            },
+            name: {
+              code: 'name',
+              type: 'text',
+              value: 'laptop asus cor i5',
+            },
+            vendor_code: {
+              code: 'vendor_code',
+              type: 'text',
+              value: '#1234-13',
+            },
+            price: {
+              code: 'price',
+              type: 'text',
+              value: '50.000 руб',
+            },
+            volume_multiplicity: {
+              code: 'volume_multiplicity',
+              type: 'text',
+              value: '12 шт',
+            },
+            test: {
+              code: 'test',
+              type: 'text',
+              value: 'test',
+            },
+            btn: {
+              code: 'btn',
+              type: 'btn',
+              value: 'Купить',
+              id: 'id № 79'
+            },
+            id: {
+              code: 'id',
+              type: 'hidden',
+              value: '81',
             },
           },
         },

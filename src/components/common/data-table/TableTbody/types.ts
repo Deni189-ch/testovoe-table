@@ -6,7 +6,6 @@ export type TableTbodyType = {
   checkedID: any
   setData: () => void
   topBar: topBarType
-  config: any
   styles: Classes
   items: Array<columnsType>
 }

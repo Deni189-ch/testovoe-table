@@ -1,8 +1,8 @@
-import React, {memo, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import { useStore } from 'effector-react'
 import clsx from 'clsx';
 
-import {getDefaultValueArrayCheckbox, getConfig} from '../utils';
+import {getDefaultValueArrayCheckbox, getNewCheckedArray} from './utils';
 import { tableType } from '../../../page/main/data.mock';
 
 import ActionBarContainer from './ActionBarContainer';
@@ -25,15 +25,21 @@ const DataTable: React.FC<DataTableType> = ({
     if (items) return getDefaultValueArrayCheckbox(items, 'productId');
   });
 
-  const [config, setConfig] = useState(
-    getConfig({ topBar })
-  );
+  useEffect(() => {
+    // отображение количества выделенных чекбоксов на страничке
+    if (checkedID && items) {
+      setCheckedID(getNewCheckedArray(items, checkedID));
+    }
+  }, [items]);
+
   return (
     <>
       {!!actionBar && (
         <ActionBarContainer
           hasCheckedAction={hasCheckedAction}
+          lengthProduct={items.length}
           actionBar={actionBar}
+          checkedID={checkedID}
         />
       )}
       
@@ -53,7 +59,6 @@ const DataTable: React.FC<DataTableType> = ({
             setData={setData}
             styles={styles}
             topBar={topBar}
-            config={config}
             items={items}
           />
         </table>

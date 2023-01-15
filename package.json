@@ -46,8 +46,10 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash.clonedeep": "^4.5.7",
     "@types/react-show-more-text": "^1.4.2",
     "clsx": "^1.2.1",
+    "lodash.clonedeep": "^4.5.0",
     "react-show-more-text": "^1.6.2",
     "sass": "^1.57.1",
     "uuid": "^9.0.0"

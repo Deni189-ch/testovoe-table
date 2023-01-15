@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 import clsx from 'clsx';
 
-import { cellType } from '../../../../page/main/data.mock';
+import {cellType} from '../../../../page/main/data.mock';
 import {DataTableTheadType} from './types'
 
 const DataTableThead: React.FC<DataTableTheadType> = ({

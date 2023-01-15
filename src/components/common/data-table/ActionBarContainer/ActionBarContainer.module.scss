@@ -1,5 +1,11 @@
 .wrapper {
+  display: flex;
+  align-items: center;
   background-color: #f7f8fa;
   padding: 10px 10px 5px 10px;
-  display: flex;
+}
+
+.countChek {
+  padding: 0 10px;
+  color: #757575;
 }

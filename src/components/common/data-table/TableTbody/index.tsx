@@ -14,7 +14,6 @@ const TableTbody: React.FC<TableTbodyType> = ({
                                      checkedID,
                                      setData,
                                      topBar,
-                                     config,
                                      styles,
                                      items,
                                    }) => {
@@ -23,22 +22,20 @@ const TableTbody: React.FC<TableTbodyType> = ({
   return (
     <tbody>
     {(!!items && !!items?.length ? items : Object.entries(items)).map(
-      //@ts-ignore
-      ({columns: columnsObject}, index) => {
+     
+      ({columns: columnsObject}: any, index) => {
         const filteredColumnsObject = Object.entries(columnsObject).filter(
-          //@ts-ignore
-          ([code, {type, value}]) => {
+          ([code, {type, value}]: any) => {
             return type !== 'hidden';
           }
         );
         return (
           <DataTableRowContextProvider
-            // key={columnsObject.productId}
-            key={uuidv4()}
             setCheckedID={setCheckedID}
             columns={columnsObject}
             checkedID={checkedID}
             setData={setData}
+            key={uuidv4()}
             index={index}
           >
             <tr
@@ -60,13 +57,6 @@ const TableTbody: React.FC<TableTbodyType> = ({
                         //@ts-ignore
                         data={column}
                         code={code}
-                        config={
-                          {
-                            //@ts-ignore
-                            ...topBar[code],
-                            sorting: {...config},
-                          } ?? {}
-                        }
                       />
                     </td>
                   );

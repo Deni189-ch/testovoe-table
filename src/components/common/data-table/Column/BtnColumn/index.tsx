@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataTableRowContext } from '../../../../../context/data-table-row';
 
 import styles from './BtnColumn.module.scss';
 
-export const BtnColumn = ({data: {value, id}}: any) => {
+export const BtnColumn = ({data: {value}}: any) => {
+  //@ts-ignore
+  const { columns } = useContext(DataTableRowContext);
   const onClick = () => {
-    alert(id)
+    alert( `id № ${columns.id.value}`)
   }
   return (
     <div className={styles.wrapper}>
